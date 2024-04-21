@@ -1,0 +1,33 @@
+package tpl
+
+templ indexInner(path string, authenticated bool) {
+	switch path {
+		case "signup":
+			@Signup()
+		case "login":
+			@Login()
+		case "", "home":
+			@Home(authenticated)
+	}
+}
+
+templ Index(staticPath, path string, authenticated bool) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>SplitDecision</title>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="{ staticPath }/css/bundle.css"/>
+		</head>
+		<body>
+			<main>
+				@indexInner(path, authenticated)
+			</main>
+			<main hx-get="/{path}" hx-trigger="load">
+				Loading...
+			</main>
+			<script type="module" src="{ staticPath }/bundle.js"></script>
+		</body>
+	</html>
+}

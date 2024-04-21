@@ -1,0 +1,12 @@
+package tpl
+
+templ Home(authenticated bool) {
+	if (authenticated) {
+		<div>Hello there!</div>
+	} else {
+		<div>
+			<a class="button" hx-get="/signup" hx-push-url="true" hx-target="main">Signup</a>
+			<a class="button" hx-get="/login" hx-push-url="true">Login</a>
+		</div>
+	}
+}

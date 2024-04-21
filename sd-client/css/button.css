@@ -1,0 +1,14 @@
+.button {
+	outline: 0;
+	border: 1px solid var(--col-primary-border);
+	border-radius: 3px;
+
+	padding: 0.5rem 1rem;
+	box-shadow: 0px 1px 3px var(--shadow);
+	cursor: pointer;
+}
+
+.button.is-primary {
+	background-color: var(--col-primary);
+	color: var(--col-light-text);
+}
